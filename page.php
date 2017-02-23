@@ -9,27 +9,33 @@
           <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
 			  <div class="welcome_content">
-				<?php if ( false ): ?>
-					
+				<?php if ( has_post_thumbnail() ): ?>
+					<?php the_post_thumbnail() ?>
 				<?php else: ?>
 					<h1 class="welcome_content_heading"><?php bloginfo('name') ?></h1>
 				<?php endif; ?>
 				<p><?php bloginfo('description') ?></p>
-                <ul class="welcome_content_logo">
-                  <li><i class="icon ion-ios-minus-empty"></i></li>
-                  <li><i class="icon ion-fork"></i></li>
-                  <li><i class="icon ion-wineglass"></i></li>
-                  <li><i class="icon ion-knife"></i></li>
-                  <li><i class="icon ion-ios-minus-empty"></i></li>
-                </ul>
-                <h3 class="welcome_content_caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-                <div class="welcome_content_btn">
-                  <a href="#section_about" class="btn btn-default">Discover</a>
-                </div>
+				<?php while( have_posts() ) : the_post(); ?>
+					<?php the_content() ?> 
+				<?php endwhile; ?>
               </div> <!-- .welcome_content -->
             </div>
           </div> <!-- .row -->
-        </div> <!-- .container -->
+		</div> <!-- .container -->
+		<?php 
+			$background = get_field('background');
+			if ( $background ): ?>
+				<style>
+					.welcome_bg
+					{
+						background: url(<?php echo $background ?>);
+						@media(max-width: 992px)
+						{
+							background: url(<?php echo $background ?>);
+						}
+					}
+				</style>
+		<?php endif; ?>
         <div class="welcome_bg"></div>
       </section>
 

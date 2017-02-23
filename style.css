@@ -1209,7 +1209,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Reenie Beanie', cursive;
+  font-family: 'arabian_knight', regular;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -2568,7 +2568,7 @@ output {
   padding-top: 7px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #D01F25;
+  color: #b15f5f;
 }
 .form-control {
   display: block;
@@ -2577,7 +2577,7 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #D01F25;
+  color: #b15f5f;
   background-color: transparent;
   background-image: none;
   border: 1px solid #ccc;
@@ -2589,20 +2589,20 @@ output {
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 .form-control:focus {
-  border-color: #D01F25;
+  border-color: #b15f5f;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(208, 31, 37, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(208, 31, 37, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(177, 95, 95, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(177, 95, 95, 0.6);
 }
 .form-control::-moz-placeholder {
-  color: #D01F25;
+  color: #b15f5f;
   opacity: 1;
 }
 .form-control:-ms-input-placeholder {
-  color: #D01F25;
+  color: #b15f5f;
 }
 .form-control::-webkit-input-placeholder {
-  color: #D01F25;
+  color: #b15f5f;
 }
 .form-control::-ms-expand {
   border: 0;
@@ -3919,7 +3919,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   font-size: 14px;
   font-weight: normal;
   line-height: 1;
-  color: #D01F25;
+  color: #b15f5f;
   text-align: center;
   background-color: #eeeeee;
   border: 1px solid #ccc;
@@ -4609,7 +4609,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   border-color: rgba(0, 0, 0, 0);
 }
 .navbar-inverse .navbar-brand {
-  color: #D01F25;
+  color: #b15f5f;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
@@ -4620,7 +4620,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #9d9d9d;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #D01F25;
+  color: #b15f5f;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
@@ -4647,7 +4647,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-color: transparent;
 }
 .navbar-inverse .navbar-toggle .icon-bar {
-  background-color: #D01F25;
+  background-color: #b15f5f;
 }
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
@@ -4667,7 +4667,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     background-color: rgba(0, 0, 0, 0);
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
-    color: #D01F25;
+    color: #b15f5f;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -4688,13 +4688,13 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   }
 }
 .navbar-inverse .navbar-link {
-  color: #D01F25;
+  color: #b15f5f;
 }
 .navbar-inverse .navbar-link:hover {
   color: #F1AE2B;
 }
 .navbar-inverse .btn-link {
-  color: #D01F25;
+  color: #b15f5f;
 }
 .navbar-inverse .btn-link:hover,
 .navbar-inverse .btn-link:focus {
@@ -6764,7 +6764,7 @@ button.close {
 .btn {
   background-color: #fce29b;
   border-color: #F1AE2B;
-  color: #D01F25;
+  color: #b15f5f;
   transition: all 0.3s ease-out;
 }
 .btn:hover,
@@ -6812,7 +6812,7 @@ button.close {
 }
 /*** Section: Footer ***/
 .section_footer {
-  background-color: #D01F25;
+  background-color: #b15f5f;
   padding: 30px;
 }
 .section_footer .section_footer_heading {
@@ -6877,7 +6877,7 @@ button.close {
   letter-spacing: 1px;
 }
 .form-control option:not(selected) {
-  color: #D01F25;
+  color: #b15f5f;
 }
 /**
  * Navbar
@@ -6963,10 +6963,28 @@ button.close {
 /**
 * Typography
 */
+@font-face {
+  font-family: 'sovba';
+  src: url('assets/fonts/Sovba_Regular-webfont.woff2') format('woff2'), url('assets/fonts/Sovba_Regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'nurkholis';
+  src: url('assets/fonts/nurkholis-webfont.woff2') format('woff2'), url('assets/fonts/nurkholis-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'arabian_knight';
+  src: url('assets/fonts/arabian_knight-webfont.woff2') format('woff2'), url('assets/fonts/arabian_knight-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 /*** 2. Section: General styles ***/
 .section_title {
-  color: #D01F25;
-  font-size: 54px;
+  color: #b15f5f;
+  font-size: 34px;
   text-align: center;
   text-transform: uppercase;
   font-weight: 600;
@@ -7230,7 +7248,7 @@ button.close {
 }
 .section_about .about_table > .section_row > [class*="col-"] .about_desc {
   font-size: 20px;
-  color: #D01F25;
+  color: #b15f5f;
   padding: 120px 80px;
 }
 @media screen and (min-device-width: 2000px) {
@@ -7337,7 +7355,7 @@ button.close {
   transition: transform 0.35s;
 }
 .section_team .team__item .team__item_name > h3 {
-  color: #D01F25;
+  color: #b15f5f;
   font-size: 32px;
   font-weight: 600;
 }
@@ -7349,7 +7367,7 @@ button.close {
   bottom: 0;
   padding: 20px 10px;
   height: 65px;
-  background: #D01F25;
+  background: #b15f5f;
   opacity: 0.85;
   color: #3c4a50;
   transition: transform 0.35s;
@@ -7489,7 +7507,7 @@ button.close {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #D01F25;
+  color: #b15f5f;
 }
 @media (max-width: 767px) {
   .menu_nav > li > a {
@@ -7746,7 +7764,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(208, 31, 37, 0.6);
+  background-color: rgba(177, 95, 95, 0.6);
 }
 .section_gallery .gallery__grid .gallery__item > a:after {
   content: "\f4a4";
@@ -8168,7 +8186,7 @@ button.close {
   }
 }
 .section_reservation > .section_row > [class*="col-md"] .reservation_form_body .reservation_form_title {
-  color: #D01F25;
+  color: #b15f5f;
   text-transform: uppercase;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 30px;

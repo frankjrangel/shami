@@ -1,5 +1,8 @@
 <?php
 
+// Hide toolbar in front end
+add_filter('show_admin_bar', '__return_false');
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -10,7 +13,7 @@
 function tipearte_resto_bakery_setup()
 {
 	// Register theme menu
-	register_nav_menu('nav-menu',__( 'Nav Menu' ));
+	register_nav_menu('nav-menu',__( 'Menu de navegación' ));
 	
 	// Required for bootstrap navigation
 	require_once('wp_bootstrap_navwalker.php');
@@ -28,7 +31,10 @@ function tipearte_resto_bakery_setup()
 		) );
 	}
 
-	// Add logo theme support
+	// Add theme support for selective refresh for widgets.
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	// Add logo support
 	add_theme_support( 'custom-logo', array(
 		'height'      => 35,
 		'width'       => 140,
@@ -36,6 +42,87 @@ function tipearte_resto_bakery_setup()
 		'flex-width'  => true,
 		'header-text' => array( 'site-title', 'site-description' ),
 	) );
+
+	// Register post types
+	// Register about post type
+	$labels = array(
+		'name' => 'Nosotros',
+		'singular_name' => 'Sección',
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'supports' => array( 'title', 'editor', 'thumbnail'),
+	);
+	register_post_type( 'about', $args );
+	
+	// Register team post type
+	$labels = array(
+		'name' => 'Equipo',
+		'singular_name' => 'Miembro',
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'supports' => array( 'title', 'editor', 'thumbnail'),
+	);
+	register_post_type( 'team', $args );
+
+	// Register menu post type
+	$labels = array(
+		'name' => 'Menu',
+		'singular_name' => 'Plato',
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'supports' => array( 'title', 'editor', 'thumbnail'),
+		'taxonomies' => array( 'category' ),
+	);
+	register_post_type( 'menu', $args );
+
+	// Register gallery post type
+	$labels = array(
+		'name' => 'Galería',
+		'singular_name' => 'Imagen',
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'supports' => array( 'title', 'thumbnail'),
+	);
+	register_post_type( 'gallery', $args );
+
+	// Register reviews post type
+	$labels = array(
+		'name' => 'Reseñas',
+		'singular_name' => 'Reseña',
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'supports' => array( 'title', 'editor','thumbnail'),
+	);
+	register_post_type( 'reviews', $args );
+
+	// Register events post type
+	$labels = array(
+		'name' => 'Eventos',
+		'singular_name' => 'Evento',
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'supports' => array( 'title', 'editor','thumbnail'),
+	);
+	register_post_type( 'events', $args );
+	
 }
 add_action( 'after_setup_theme', 'tipearte_resto_bakery_setup' );
 
