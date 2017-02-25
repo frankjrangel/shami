@@ -43,7 +43,13 @@ function tipearte_resto_bakery_setup()
 		'header-text' => array( 'site-title', 'site-description' ),
 	) );
 
-	// Register post types
+	
+}
+add_action( 'after_setup_theme', 'tipearte_resto_bakery_setup' );
+
+
+// Register post types
+function register_custom_post_types() {
 	// Register about post type
 	$labels = array(
 		'name' => 'Nosotros',
@@ -54,6 +60,7 @@ function tipearte_resto_bakery_setup()
 		'public' => true,
 		'has_archive' => true,
 		'supports' => array( 'title', 'editor', 'thumbnail'),
+		'taxonomies' => array( 'category' ),
 	);
 	register_post_type( 'about', $args );
 	
@@ -122,9 +129,8 @@ function tipearte_resto_bakery_setup()
 		'supports' => array( 'title', 'editor','thumbnail'),
 	);
 	register_post_type( 'events', $args );
-	
 }
-add_action( 'after_setup_theme', 'tipearte_resto_bakery_setup' );
+add_action( 'init', 'register_custom_post_types');
 
 /**
  * Enqueue scripts and styles.
