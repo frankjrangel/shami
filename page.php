@@ -1,27 +1,28 @@
 <?php get_header(); ?>
 
-	  <!-- CONTENT
-      ================================================== -->
+	<!-- CONTENT
+	 ================================================== -->
 
-      <!-- section welcome -->
-      <section class="section_welcome" id="section_welcome">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-			  <div class="welcome_content">
-				<?php if ( has_post_thumbnail() ): ?>
-					<?php the_post_thumbnail() ?>
-				<?php else: ?>
-					<h1 class="welcome_content_heading"><?php bloginfo('name') ?></h1>
-				<?php endif; ?>
-				<p><?php bloginfo('description') ?></p>
-				<?php while( have_posts() ) : the_post(); ?>
-					<?php the_content() ?> 
-				<?php endwhile; ?>
-              </div> <!-- .welcome_content -->
-            </div>
-          </div> <!-- .row -->
+	<!-- section welcome -->
+	<section class="section_welcome" id="section_welcome">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+			  		<div class="welcome_content">
+						<?php if ( has_post_thumbnail() ): ?>
+							<?php the_post_thumbnail() ?>
+						<?php else: ?>
+							<h1 class="welcome_content_heading"><?php bloginfo('name') ?></h1>
+						<?php endif; ?>
+						<p><?php bloginfo('description') ?></p>
+						<?php while( have_posts() ) : the_post(); ?>
+							<?php the_content() ?> 
+						<?php endwhile; ?>
+					</div> <!-- .welcome_content -->
+				</div>
+			</div> <!-- .row -->
 		</div> <!-- .container -->
+
 		<?php 
 			$background = get_field('background');
 			if ( $background ): ?>
@@ -36,148 +37,29 @@
 					}
 				</style>
 		<?php endif; ?>
-        <div class="welcome_bg"></div>
-      </section>
+		<div class="welcome_bg"></div>
+	</section>
 
-      <!-- section about -->
-      <section class="section_about" id="section_about">
-        <div class="section_row">
-          <div class="col-sm-12">
-            <h2 class="section_title">&#8722; Our story &#8722;</h2>
-            <hr class="section_title_line">
-            <p class="section_caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sint est quidem excepturi rem officia fugit quia maxime explicabo nisi numquam, recusandae quisquam iste earum.</p>
-          </div>
-        </div> <!-- .section_row -->
-        <div class="about_table">
-          <div class="section_row">
-            <div class="col-sm-6">
-              <div class="about_img_1"></div>
-            </div>
-            <div class="col-sm-6">
-              <div class="about_desc">
-                <h3>* Traditions</h3>
-                <p>Service ipsum dolor sit amet, consectetur adipisicing elit. Nulla dolore voluptatem, ipsum, totam molestias accusantium explicabo velit aliquid impedit, reprehenderit libero voluptatum ipsa quae ad! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum atque debitis commodi architecto. Nulla dolore voluptatem. Eum atque debitis commodi architecto. Totam molestias accusantium explicabo velit aliquid impedit.</p>
-              </div>
-            </div>
-          </div> <!-- .section_row -->
-        </div> <!-- .about_table -->
-        <div class="about_table">
-          <div class="section_row">
-            <div class="col-sm-6">
-              <div class="about_desc">
-                <h3>* Professional service</h3>
-                <p>Roles ipsum dolor sit amet, consectetur adipisicing elit. Nulla dolore voluptatem, ipsum, totam molestias accusantium explicabo velit aliquid impedit, reprehenderit libero voluptatum ipsa quae ad! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum atque debitis commodi architecto. Groggery ipsum dolor sit amet, consectetur adipisicing elit. Soluta modi esse accusantium sit velit cupiditate minima ipsam ex!</p>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="about_img_2"></div>
-            </div>
-          </div> <!-- .section_row -->
-        </div>
-        <div class="about_table">
-          <div class="section_row">
-            <div class="col-sm-6">
-              <div class="about_img_3"></div>
-            </div>
-            <div class="col-sm-6">
-              <div class="about_desc">
-                <h3>* Our principles</h3>
-                  <p>&#9734; Fresh products<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque suscipit officiis iure iste, alias voluptatibus.</p>
-                  <p>&#9734; Healthy food<br>Saepe inventore deleniti nam, id ducimus eveniet facilis, distinctio illo architecto atque.</p>
-                  <p>&#9734; Traditional methods<br>Ipsa voluptate nemo reiciendis cum, rem perferendis qui quis quibusdam quisquam.</p>
-              </div>
-            </div>
-          </div> <!-- .section_row -->
-        </div> <!-- .about_table -->
-      </section>
+    <!-- section menu -->
+    <section class="section_menu" id="section_menu">
+		<div class="container">
 
-      <!-- section team -->
-      <section class="section_team">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12">
-              <h2 class="section_title">&#8722; Our team &#8722;</h2>
-              <hr class="section_title_line">
-              <p class="section_caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, facere.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="team__item">
-                <div class="team__item_photo">
-                  <img class="img-responsive" src="http://placehold.it/729x768" alt="...">
-                </div>
-                <div class="team__item_name">
-                  <h3>John Doe</h3>
-                </div>
-                <div class="team__item_overlay">
-                  <p class="team__item_profession">Master chef</p>
-                  <ul class="team__item_social">
-                    <li class="social_icon"><a href="#"><i class="icon ion-social-facebook-outline"></i></a></li>
-                    <li class="social_icon"><a href="#"><i class="icon ion-social-twitter-outline"></i></a></li>
-                    <li class="social_icon"><a href="#"><i class="icon ion-social-instagram-outline"></i></a></li>
-                  </ul>
-                </div>
-              </div> <!-- .team_item -->
-            </div>
-            <div class="col-sm-4">
-              <div class="team__item">
-                <div class="team__item_photo">
-                  <img class="img-responsive" src="http://placehold.it/729x768" alt="...">
-                </div>
-                <div class="team__item_name">
-                  <h3>Jane Doe</h3>
-                </div>
-                <div class="team__item_overlay">
-                  <p class="team__item_profession">Chef</p>
-                  <ul class="team__item_social">
-                    <li class="social_icon"><a href="#"><i class="icon ion-social-facebook-outline"></i></a></li>
-                    <li class="social_icon"><a href="#"><i class="icon ion-social-twitter-outline"></i></a></li>
-                    <li class="social_icon"><a href="#"><i class="icon ion-social-instagram-outline"></i></a></li>
-                  </ul>
-                </div>
-              </div> <!-- .team_item -->
-            </div>
-            <div class="col-sm-4">
-              <div class="team__item">
-                <div class="team__item_photo">
-                  <img class="img-responsive" src="http://placehold.it/729x768" alt="...">
-                </div>
-                <div class="team__item_name">
-                  <h3>John Doe</h3>
-                </div>
-                <div class="team__item_overlay">
-                  <p class="team__item_profession">Barman</p>
-                  <ul class="team__item_social">
-                    <li class="social_icon"><a href="#"><i class="icon ion-social-facebook-outline"></i></a></li>
-                    <li class="social_icon"><a href="#"><i class="icon ion-social-twitter-outline"></i></a></li>
-                    <li class="social_icon"><a href="#"><i class="icon ion-social-instagram-outline"></i></a></li>
-                  </ul>
-                </div>
-              </div> <!-- .team_item -->
-            </div>
-          </div> <!-- .row -->
-        </div> <!-- .container -->
-      </section>
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="section_title">&#8722; Menu &#8722;</h2>
+					<hr class="section_title_line">
+					<p class="section_caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit mollitia, temporibus aliquid quae, repellendus eaque? Illo harum omnis sed debitis ratione dolor.</p>
+				</div>
+			</div>
 
-      <!-- section menu -->
-      <section class="section_menu" id="section_menu">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12">
-              <h2 class="section_title">&#8722; Menu &#8722;</h2>
-              <hr class="section_title_line">
-              <p class="section_caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit mollitia, temporibus aliquid quae, repellendus eaque? Illo harum omnis sed debitis ratione dolor.</p>
-            </div>
-          </div>
-          <div class="row">
+			<div class="row">
             <div class="col-sm-12">
               <ul class="nav nav-tabs menu_nav">
-                <li role="presentation" class="active"><a href="#" role="tab" data-filter=".menu_breakfast">Breakfast</a></li>
-                <li role="presentation"><a href="#" role="tab" data-filter=".menu_lunch">Lunch</a></li>
-                <li role="presentation"><a href="#" role="tab" data-filter=".menu_dinner">Dinner</a></li>
-                <li role="presentation"><a href="#" role="tab" data-filter=".menu_drinks">Drinks</a></li>
-                <li role="presentation"><a href="#" role="tab" data-filter=".menu_desserts">Desserts</a></li>
+				<li role="presentation" class="active"><a href="#" role="tab" data-filter=".menu_breakfast">Breakfast</a></li>
+				<li role="presentation"><a href="#" role="tab" data-filter=".menu_lunch">Lunch</a></li>
+				<li role="presentation"><a href="#" role="tab" data-filter=".menu_dinner">Dinner</a></li>
+				<li role="presentation"><a href="#" role="tab" data-filter=".menu_drinks">Drinks</a></li>
+				<li role="presentation"><a href="#" role="tab" data-filter=".menu_desserts">Desserts</a></li>
               </ul>
             </div>
           </div>
@@ -501,6 +383,127 @@
                   <p class="overlay_price">12$</p>
                 </div>
               </div>
+            </div>
+          </div> <!-- .row -->
+        </div> <!-- .container -->
+      </section>
+
+      <!-- section about -->
+      <section class="section_about" id="section_about">
+        <div class="section_row">
+          <div class="col-sm-12">
+            <h2 class="section_title">&#8722; Our story &#8722;</h2>
+            <hr class="section_title_line">
+            <p class="section_caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sint est quidem excepturi rem officia fugit quia maxime explicabo nisi numquam, recusandae quisquam iste earum.</p>
+          </div>
+        </div> <!-- .section_row -->
+        <div class="about_table">
+          <div class="section_row">
+            <div class="col-sm-6">
+              <div class="about_img_1"></div>
+            </div>
+            <div class="col-sm-6">
+              <div class="about_desc">
+                <h3>* Traditions</h3>
+                <p>Service ipsum dolor sit amet, consectetur adipisicing elit. Nulla dolore voluptatem, ipsum, totam molestias accusantium explicabo velit aliquid impedit, reprehenderit libero voluptatum ipsa quae ad! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum atque debitis commodi architecto. Nulla dolore voluptatem. Eum atque debitis commodi architecto. Totam molestias accusantium explicabo velit aliquid impedit.</p>
+              </div>
+            </div>
+          </div> <!-- .section_row -->
+        </div> <!-- .about_table -->
+        <div class="about_table">
+          <div class="section_row">
+            <div class="col-sm-6">
+              <div class="about_desc">
+                <h3>* Professional service</h3>
+                <p>Roles ipsum dolor sit amet, consectetur adipisicing elit. Nulla dolore voluptatem, ipsum, totam molestias accusantium explicabo velit aliquid impedit, reprehenderit libero voluptatum ipsa quae ad! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum atque debitis commodi architecto. Groggery ipsum dolor sit amet, consectetur adipisicing elit. Soluta modi esse accusantium sit velit cupiditate minima ipsam ex!</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="about_img_2"></div>
+            </div>
+          </div> <!-- .section_row -->
+        </div>
+        <div class="about_table">
+          <div class="section_row">
+            <div class="col-sm-6">
+              <div class="about_img_3"></div>
+            </div>
+            <div class="col-sm-6">
+              <div class="about_desc">
+                <h3>* Our principles</h3>
+                  <p>&#9734; Fresh products<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque suscipit officiis iure iste, alias voluptatibus.</p>
+                  <p>&#9734; Healthy food<br>Saepe inventore deleniti nam, id ducimus eveniet facilis, distinctio illo architecto atque.</p>
+                  <p>&#9734; Traditional methods<br>Ipsa voluptate nemo reiciendis cum, rem perferendis qui quis quibusdam quisquam.</p>
+              </div>
+            </div>
+          </div> <!-- .section_row -->
+        </div> <!-- .about_table -->
+      </section>
+
+      <!-- section team -->
+      <section class="section_team">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h2 class="section_title">&#8722; Our team &#8722;</h2>
+              <hr class="section_title_line">
+              <p class="section_caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, facere.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="team__item">
+                <div class="team__item_photo">
+                  <img class="img-responsive" src="http://placehold.it/729x768" alt="...">
+                </div>
+                <div class="team__item_name">
+                  <h3>John Doe</h3>
+                </div>
+                <div class="team__item_overlay">
+                  <p class="team__item_profession">Master chef</p>
+                  <ul class="team__item_social">
+                    <li class="social_icon"><a href="#"><i class="icon ion-social-facebook-outline"></i></a></li>
+                    <li class="social_icon"><a href="#"><i class="icon ion-social-twitter-outline"></i></a></li>
+                    <li class="social_icon"><a href="#"><i class="icon ion-social-instagram-outline"></i></a></li>
+                  </ul>
+                </div>
+              </div> <!-- .team_item -->
+            </div>
+            <div class="col-sm-4">
+              <div class="team__item">
+                <div class="team__item_photo">
+                  <img class="img-responsive" src="http://placehold.it/729x768" alt="...">
+                </div>
+                <div class="team__item_name">
+                  <h3>Jane Doe</h3>
+                </div>
+                <div class="team__item_overlay">
+                  <p class="team__item_profession">Chef</p>
+                  <ul class="team__item_social">
+                    <li class="social_icon"><a href="#"><i class="icon ion-social-facebook-outline"></i></a></li>
+                    <li class="social_icon"><a href="#"><i class="icon ion-social-twitter-outline"></i></a></li>
+                    <li class="social_icon"><a href="#"><i class="icon ion-social-instagram-outline"></i></a></li>
+                  </ul>
+                </div>
+              </div> <!-- .team_item -->
+            </div>
+            <div class="col-sm-4">
+              <div class="team__item">
+                <div class="team__item_photo">
+                  <img class="img-responsive" src="http://placehold.it/729x768" alt="...">
+                </div>
+                <div class="team__item_name">
+                  <h3>John Doe</h3>
+                </div>
+                <div class="team__item_overlay">
+                  <p class="team__item_profession">Barman</p>
+                  <ul class="team__item_social">
+                    <li class="social_icon"><a href="#"><i class="icon ion-social-facebook-outline"></i></a></li>
+                    <li class="social_icon"><a href="#"><i class="icon ion-social-twitter-outline"></i></a></li>
+                    <li class="social_icon"><a href="#"><i class="icon ion-social-instagram-outline"></i></a></li>
+                  </ul>
+                </div>
+              </div> <!-- .team_item -->
             </div>
           </div> <!-- .row -->
         </div> <!-- .container -->

@@ -49,7 +49,21 @@ add_action( 'after_setup_theme', 'tipearte_resto_bakery_setup' );
 
 
 // Register post types
-function register_custom_post_types() {
+function register_resto_bakery_post_types() {
+
+	// Register menu post type
+	$labels = array(
+		'name' => 'Menu',
+		'singular_name' => 'Plato',
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'supports' => array( 'title', 'editor', 'thumbnail'),
+	);
+	register_post_type( 'menu', $args );
+
 	// Register about post type
 	$labels = array(
 		'name' => 'Nosotros',
@@ -60,7 +74,6 @@ function register_custom_post_types() {
 		'public' => true,
 		'has_archive' => true,
 		'supports' => array( 'title', 'editor', 'thumbnail'),
-		'taxonomies' => array( 'category' ),
 	);
 	register_post_type( 'about', $args );
 	
@@ -76,20 +89,6 @@ function register_custom_post_types() {
 		'supports' => array( 'title', 'editor', 'thumbnail'),
 	);
 	register_post_type( 'team', $args );
-
-	// Register menu post type
-	$labels = array(
-		'name' => 'Menu',
-		'singular_name' => 'Plato',
-	);
-	$args = array(
-		'labels' => $labels,
-		'public' => true,
-		'has_archive' => true,
-		'supports' => array( 'title', 'editor', 'thumbnail'),
-		'taxonomies' => array( 'category' ),
-	);
-	register_post_type( 'menu', $args );
 
 	// Register gallery post type
 	$labels = array(
@@ -130,7 +129,59 @@ function register_custom_post_types() {
 	);
 	register_post_type( 'events', $args );
 }
-add_action( 'init', 'register_custom_post_types');
+add_action( 'init', 'register_resto_bakery_post_types' );
+
+function register_resto_bakery_taxonomies() {
+
+	// Regsiter meal type taxonomy
+	$labels = array(
+		'name'              => 'Tipos de platos',
+		'singular_name'     => 'Tipo de plato',
+		'search_items'      => 'Buscar tipo de plato',
+		'all_items'         => 'Todos los tipos de platos',
+		'edit_item'         => 'Editar tipo de plato',
+		'update_item'       => 'Actualizar tipo de plato',
+		'add_new_item'      => 'Agregar tipo de plato',
+		'new_item_name'     => 'Nombre del tipo de plato',
+		'menu_name'         => 'Tipos de platos',
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'tipos-de-platos' ),
+	);
+
+	register_taxonomy( 'meal_type', array('menu'), $args);
+
+	// Regsiter about structure taxonomy
+	$labels = array(
+		'name'              => 'Estructura',
+		'singular_name'     => 'Estructura',
+		'search_items'      => 'Buscar estructura',
+		'all_items'         => 'Todas las estructuras',
+		'edit_item'         => 'Editar estructura',
+		'update_item'       => 'Actualizar estructura',
+		'add_new_item'      => 'Agregar estructura',
+		'new_item_name'     => 'Nombre de estructura',
+		'menu_name'         => 'Estructura',
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'nosotros-estructura' ),
+	);
+
+	register_taxonomy( 'about_structure', array('about'), $args);
+}
+add_action( 'init', 'register_resto_bakery_taxonomies' );
 
 /**
  * Enqueue scripts and styles.
