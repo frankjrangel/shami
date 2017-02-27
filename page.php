@@ -24,15 +24,17 @@
 		</div> <!-- .container -->
 
 		<?php 
-			$background = get_field('background');
+			$background = get_field('header_background');
 			if ( $background ): ?>
 				<style>
 					.welcome_bg
 					{
 						background: url(<?php echo $background ?>);
+						background-size: cover;
 						@media(max-width: 992px)
 						{
 							background: url(<?php echo $background ?>);
+							background-size: cover;
 						}
 					}
 				</style>
@@ -48,22 +50,51 @@
 				<div class="col-sm-12">
 					<h2 class="section_title">&#8722; Menu &#8722;</h2>
 					<hr class="section_title_line">
-					<p class="section_caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit mollitia, temporibus aliquid quae, repellendus eaque? Illo harum omnis sed debitis ratione dolor.</p>
+					<?php // Query menu section title
+						$the_query = new WP_Query( array(
+							'post_type' => 'menu',
+							'tax_query' => array( array(
+								'taxonomy' => 'meal_type',
+								'field' => 'slug',
+								'terms' => 'menu-titulo',
+							) ),
+						) );
+
+						while ( $the_query->have_posts() ) : $the_query->the_post() ?>
+							<p class="section_caption">
+								<?php the_content() ?>
+							</p>
+					<?php
+						endwhile;
+						wp_reset_postdata();
+					?>
 				</div>
 			</div>
 
 			<div class="row">
-            <div class="col-sm-12">
-              <ul class="nav nav-tabs menu_nav">
-				<li role="presentation" class="active"><a href="#" role="tab" data-filter=".menu_breakfast">Breakfast</a></li>
-				<li role="presentation"><a href="#" role="tab" data-filter=".menu_lunch">Lunch</a></li>
-				<li role="presentation"><a href="#" role="tab" data-filter=".menu_dinner">Dinner</a></li>
-				<li role="presentation"><a href="#" role="tab" data-filter=".menu_drinks">Drinks</a></li>
-				<li role="presentation"><a href="#" role="tab" data-filter=".menu_desserts">Desserts</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row menu__grid">
+				<div class="col-sm-12">
+					<ul class="nav nav-tabs menu_nav">
+						<?php
+							$terms = get_terms( 'meal_type', array(
+								'orderby' => 'description',
+								'hide_empty' => false,
+								'exclude' => array( get_term_by( 'name', 'Titulo', 'meal_type' )->term_id ),
+							) );
+									
+							foreach ($terms as $key => $term) : ?>
+								<li role="presentation" 
+								<?php if ( $key == 0 ) : ?> 
+									class="active"
+								<?php endif ?>
+								><a href="#" role="tab" data-filter=".menu_<?php echo $term->name ?>"><?php echo $term->name ?></a></li>
+							<?php endforeach ?>
+							<!-- TODO delete, por ahora para referencia <li role="presentation"><a href="#" role="tab" data-filter=".menu_desserts">Desserts</a></li> -->
+					</ul>
+				</div>
+			</div>
+
+			<!-- Menu contents -->
+			<div class="row menu__grid">
             <div class="col-sm-4 menu__item menu_breakfast">
               <div class="menu__item_hover">
                 <img src="http://placehold.it/720x480" class="img-responsive" alt="...">

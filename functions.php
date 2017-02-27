@@ -1,7 +1,10 @@
 <?php
 
-// Hide toolbar in front end
+// Hides toolbar in front end
 add_filter('show_admin_bar', '__return_false');
+
+// Avoid p tags in the_content()
+remove_filter( 'the_content', 'wpautop' );
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -42,8 +45,9 @@ function tipearte_resto_bakery_setup()
 		'flex-width'  => true,
 		'header-text' => array( 'site-title', 'site-description' ),
 	) );
-
 	
+	// Add theme support for custom post types thumbnails
+	add_theme_support( 'post-thumbnails' );
 }
 add_action( 'after_setup_theme', 'tipearte_resto_bakery_setup' );
 

@@ -6984,7 +6984,8 @@ button.close {
 /*** 2. Section: General styles ***/
 .section_title {
   color: #b15f5f;
-  font-size: 34px;
+  font-size: 49px;
+  line-height: 1;
   text-align: center;
   text-transform: uppercase;
   font-weight: 600;
@@ -7070,12 +7071,13 @@ button.close {
   }
 }
 .section_welcome .welcome_content p {
-  font-family: 'Reenie Beanie', sans-serif;
-  font-size: 34px;
+  padding-top: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 29px;
 }
 @media (max-width: 767px) {
   .section_welcome .welcome_content p {
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 .section_welcome .welcome_content .welcome_content_logo > li {
