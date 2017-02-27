@@ -193,8 +193,6 @@ add_action( 'init', 'register_resto_bakery_taxonomies' );
 function tipearte_resto_bakery_styles_and_scripts() 
 {
 	// CSS files
-    wp_enqueue_style('bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', array(), '', 'all');
-	wp_enqueue_style('bootstrap-theme', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css', array('bootstrap-css'), '', 'all');
 	wp_enqueue_style('lightbox-css', get_template_directory_uri() . '/assets/plugins/lightbox/dist/css/lightbox.css', array(), '', 'all');
 	wp_enqueue_style('ionicons-css', get_template_directory_uri() . '/assets/plugins/ionicons/css/ionicons.min.css', array(), '', 'all');
 	wp_enqueue_style( 'style', get_stylesheet_uri() );

@@ -52,7 +52,7 @@ $(function() {
 
     var theWindow = $(window);
     var scrollTop = theWindow.scrollTop();
-    var navbar = $('.navbar');
+    var navbar = $(".navbar");
     var navbarDefault = $(".navbar-default");
     var navbarCollapse = $(".navbar-collapse");
 
@@ -120,7 +120,7 @@ $(function() {
             });
 
             // Set ititial filtering
-            $menu.isotope({ filter: ".menu_breakfast" });
+            $menu.isotope({ filter: ".menu_Combos" });
 
             // Filter items on click
             $(".menu_nav").on('click', 'a', function(e) {

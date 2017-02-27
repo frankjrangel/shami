@@ -74,10 +74,9 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<ul class="nav nav-tabs menu_nav">
-						<?php
+						<?php // Query menu taxonomies
 							$terms = get_terms( 'meal_type', array(
 								'orderby' => 'description',
-								'hide_empty' => false,
 								'exclude' => array( get_term_by( 'name', 'Titulo', 'meal_type' )->term_id ),
 							) );
 									
@@ -95,356 +94,75 @@
 
 			<!-- Menu contents -->
 			<div class="row menu__grid">
-<?php 
-								foreach ( '' ) :
+				<?php // Query menu items 
+				foreach ( $terms as $term ) :
 					$the_query = new WP_Query( array(
 						'post_type' => 'menu',
+						'meta_key'  => 'menu_position',
+						'orderby'   => 'meta_value',
+						'order'		=> 'ASC',
 						'tax_query' => array( array(
 							'taxonomy' => 'meal_type',
 							'field' => 'slug',
-							'terms' => 'menu-titulo',
+							'terms' => $term->slug,
 						) ),
 					) );
 
 					while ( $the_query->have_posts() ) : $the_query->the_post() ?>
-							<div class="col-sm-4 menu__item menu_<?php echo get_the_category() ?>">
-								<div class="menu__item_hover">
-								<img src="<?php the_post_thumbnail_url() ?>" class="img-responsive" alt="<?php the_title() ?>">
-									<div class="menu__item_overlay">
-										<h3>Lorem ipsum</h3>
-										<p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-										<p class="overlay_price">6.5$</p>
-									</div>
+						<div class="col-sm-4 menu__item menu_<?php echo $term->name ?>">
+							<div class="menu__item_hover">
+							<img src="<?php the_post_thumbnail_url() ?>" class="img-responsive" alt="<?php the_title() ?>">
+								<div class="menu__item_overlay">
+									<h3 style="font-family: 'Josefin Sans"><?php the_title() ?></h3>
+									<p class="overlay_info"><?php the_content() ?></p>
+									<p class="overlay_price">&#36;<?php the_field('menu_price') ?></p>
 								</div>
 							</div>
+						</div>
 				<?php
 					endwhile;
 					wp_reset_postdata();
+				endforeach;
 				?>
-
-				<div class="col-sm-4 menu__item menu_breakfast">
-				  <div class="menu__item_hover">
-					<img src="http://placehold.it/589x720" class="img-responsive" alt="...">
-					<div class="menu__item_overlay">
-					  <h3>Lorem ipsum</h3>
-					  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-					  <p class="overlay_price">10$</p>
-					</div>
-				  </div>
-				</div>
-            <div class="col-sm-4 menu__item menu_breakfast">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/529x696" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">8$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_breakfast">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/512x670" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">7.5$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_breakfast">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x480" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">5.5$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_breakfast">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x480" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">8$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_lunch" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x496" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">15$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_lunch" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x540" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">8.5$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_lunch" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x478" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">13.5$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_lunch" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/628x720" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">7.8$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_lunch" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x479" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">9.5$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_lunch" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x487" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">12$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_dinner" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/512x691" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">14$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_dinner" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x480" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">11.5$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_dinner" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/501x720" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">10.5$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_dinner" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x476" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">13$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_dinner" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x480" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">21$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_dinner" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x480" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">19$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_dinner" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x480" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">17$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_drinks" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/480x720" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">6$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_drinks" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x479" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">7$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_drinks" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x480" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">4$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_drinks" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x480" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">18$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_drinks" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/497x720" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">11$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_drinks" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x480" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">12$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_drinks" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x479" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">15$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_desserts" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x479" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">11$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_desserts" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x655" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">10$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_desserts" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x480" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">7.5$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_desserts" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x720" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">8$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_desserts" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x720" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">5$</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 menu__item menu_desserts" style="display: none;">
-              <div class="menu__item_hover">
-                <img src="http://placehold.it/720x480" class="img-responsive" alt="...">
-                <div class="menu__item_overlay">
-                  <h3>Lorem ipsum</h3>
-                  <p class="overlay_info">Ingredients: Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing.</p>
-                  <p class="overlay_price">12$</p>
-                </div>
-              </div>
-            </div>
-          </div> <!-- .row -->
+        	</div> <!-- .row -->
         </div> <!-- .container -->
-      </section>
+    </section>
 
-      <!-- section about -->
-      <section class="section_about" id="section_about">
-        <div class="section_row">
-          <div class="col-sm-12">
-            <h2 class="section_title">&#8722; Our story &#8722;</h2>
-            <hr class="section_title_line">
-            <p class="section_caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sint est quidem excepturi rem officia fugit quia maxime explicabo nisi numquam, recusandae quisquam iste earum.</p>
-          </div>
-        </div> <!-- .section_row -->
+    <!-- section about -->
+	<section class="section_about" id="section_about">
+		
+		<?php // Query history section title
+			$the_query = new WP_Query( array(
+				'post_type' => 'about',
+				'tax_query' => array( array( 
+					'taxonomy' => 'about_structure',
+					'field' => 'slug',
+					'terms' => 'about-title'
+				) ),
+			) );
+				
+			while ( $the_query->have_posts() ) : $the_query->the_post() ?>
+				<style>
+					.section_about .section_title:before { content: "<?php 
+																		$title = get_the_title();
+																		$title = explode(' ', $title);
+																		$last_word = array_pop($title);
+																		echo $last_word;
+																	?>" }
+				</style>
+				<div class="section_row"> 
+					<div class="col-sm-12">
+						<h2 class="section_title">&#8722; <?php the_title() ?> &#8722;</h2>
+						<hr class="section_title_line">
+						<p class="section_caption"><?php the_content() ?></p>
+					</div>
+				</div> <!-- .section_row -->
+		<?php 
+			endwhile;
+			wp_reset_postdata();
+		?>
+
+
         <div class="about_table">
           <div class="section_row">
             <div class="col-sm-6">
