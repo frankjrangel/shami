@@ -1209,7 +1209,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'arabian_knight', regular;
+  font-family: 'Josefin Sans', regular;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -6984,7 +6984,7 @@ button.close {
 /*** 2. Section: General styles ***/
 .section_title {
   color: #b15f5f;
-  font-size: 49px;
+  font-size: 44px;
   line-height: 1;
   text-align: center;
   text-transform: uppercase;
@@ -7224,29 +7224,16 @@ button.close {
   overflow: hidden;
   padding: 0;
 }
-.section_about .about_table > .section_row > [class*="col-"] .about_img_1 {
+.section_about .about_table > .section_row > [class*="col-"] .about_img {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: url(http://placehold.it/1024x682) no-repeat center center / cover;
-}
-.section_about .about_table > .section_row > [class*="col-"] .about_img_2 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: url(http://placehold.it/1024x587) no-repeat center center / cover;
-}
-.section_about .about_table > .section_row > [class*="col-"] .about_img_3 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: url(http://placehold.it/1024x682) no-repeat center center / cover;
+  background: url(http://placehold.it/1024x682);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 .section_about .about_table > .section_row > [class*="col-"] .about_desc {
   font-size: 20px;
@@ -7812,7 +7799,7 @@ button.close {
   padding-top: 50px;
   position: relative;
   color: #F1AE2B;
-  font-size: 64px;
+  font-size: 54px;
 }
 @media (max-width: 991px) {
   .section_review .section_review_title {

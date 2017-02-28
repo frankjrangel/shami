@@ -51,7 +51,7 @@ Last change:	12/26/2016
 
 .section_title {
 	color: @brand-accent;
-	font-size: (@font-size-base + 35px);
+	font-size: (@font-size-base + 30px);
 	line-height: 1;
 	text-align: center;
 	text-transform: uppercase;
@@ -228,20 +228,13 @@ Last change:	12/26/2016
 		        float: none;
 		        overflow: hidden;
 		        padding: 0;
-		        .about_img_1 {
+		        .about_img {
 		        	position: absolute;
 				    top: 0; right: 0; bottom: 0; left: 0;
-				    background: url(http://placehold.it/1024x682) no-repeat center center / cover;
-		        }
-		        .about_img_2 {
-		        	position: absolute;
-				    top: 0; right: 0; bottom: 0; left: 0;
-				    background: url(http://placehold.it/1024x587) no-repeat center center / cover;
-		        }
-		        .about_img_3 {
-		        	position: absolute;
-				    top: 0; right: 0; bottom: 0; left: 0;
-				    background: url(http://placehold.it/1024x682) no-repeat center center / cover;
+				    background: url(http://placehold.it/1024x682);
+					background-repeat: no-repeat;
+					background-position: center center;
+					background-size: cover;
 		        }
 		        .about_desc {
 					font-size: (@font-size-base + 6px);
@@ -765,7 +758,7 @@ Last change:	12/26/2016
 		padding-top: 50px;
 		position: relative;
 		color: #F1AE2B;
-		font-size: (@font-size-base + 50px);
+		font-size: (@font-size-base + 40px);
 		@media(max-width: @screen-sm-max) {
 	        font-size: (@font-size-base + 36px);
 	    }

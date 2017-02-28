@@ -68,6 +68,19 @@ function register_resto_bakery_post_types() {
 	);
 	register_post_type( 'menu', $args );
 
+	// Register reviews post type
+	$labels = array(
+		'name' => 'Reseñas',
+		'singular_name' => 'Reseña',
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'supports' => array( 'title', 'editor','thumbnail'),
+	);
+	register_post_type( 'review', $args );
+
 	// Register about post type
 	$labels = array(
 		'name' => 'Nosotros',
@@ -82,17 +95,17 @@ function register_resto_bakery_post_types() {
 	register_post_type( 'about', $args );
 	
 	// Register team post type
-	$labels = array(
-		'name' => 'Equipo',
-		'singular_name' => 'Miembro',
-	);
-	$args = array(
-		'labels' => $labels,
-		'public' => true,
-		'has_archive' => true,
-		'supports' => array( 'title', 'editor', 'thumbnail'),
-	);
-	register_post_type( 'team', $args );
+	//$labels = array(
+		//'name' => 'Equipo',
+		//'singular_name' => 'Miembro',
+	//);
+	//$args = array(
+		//'labels' => $labels,
+		//'public' => true,
+		//'has_archive' => true,
+		//'supports' => array( 'title', 'editor', 'thumbnail'),
+	//);
+	//register_post_type( 'team', $args );
 
 	// Register gallery post type
 	$labels = array(
@@ -103,35 +116,35 @@ function register_resto_bakery_post_types() {
 		'labels' => $labels,
 		'public' => true,
 		'has_archive' => true,
-		'supports' => array( 'title', 'thumbnail'),
+		'supports' => array( 'title', 'editor', 'thumbnail'),
 	);
 	register_post_type( 'gallery', $args );
 
-	// Register reviews post type
+	//// Register events post type
+	//$labels = array(
+		//'name' => 'Eventos',
+		//'singular_name' => 'Evento',
+	//);
+	//$args = array(
+		//'labels' => $labels,
+		//'public' => true,
+		//'has_archive' => true,
+		//'supports' => array( 'title', 'editor','thumbnail'),
+	//);
+	//register_post_type( 'events', $args );
+	
+	// Register gallery post type
 	$labels = array(
-		'name' => 'Reseñas',
-		'singular_name' => 'Reseña',
+		'name' => 'Establecimientos',
+		'singular_name' => 'Establecimiento',
 	);
 	$args = array(
 		'labels' => $labels,
 		'public' => true,
 		'has_archive' => true,
-		'supports' => array( 'title', 'editor','thumbnail'),
+		'supports' => array( 'title', 'editor', 'thumbnail'),
 	);
-	register_post_type( 'reviews', $args );
-
-	// Register events post type
-	$labels = array(
-		'name' => 'Eventos',
-		'singular_name' => 'Evento',
-	);
-	$args = array(
-		'labels' => $labels,
-		'public' => true,
-		'has_archive' => true,
-		'supports' => array( 'title', 'editor','thumbnail'),
-	);
-	register_post_type( 'events', $args );
+	register_post_type( 'place', $args );
 }
 add_action( 'init', 'register_resto_bakery_post_types' );
 
@@ -183,7 +196,31 @@ function register_resto_bakery_taxonomies() {
 		'rewrite'           => array( 'slug' => 'nosotros-estructura' ),
 	);
 
-	register_taxonomy( 'about_structure', array('about'), $args);
+	register_taxonomy( 'about_layout', array('about'), $args);
+
+	// Regsiter about structure taxonomy
+	$labels = array(
+		'name'              => 'Estructura',
+		'singular_name'     => 'Estructura',
+		'search_items'      => 'Buscar estructura',
+		'all_items'         => 'Todas las estructuras',
+		'edit_item'         => 'Editar estructura',
+		'update_item'       => 'Actualizar estructura',
+		'add_new_item'      => 'Agregar estructura',
+		'new_item_name'     => 'Nombre de estructura',
+		'menu_name'         => 'Estructura',
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'galeria-estructura' ),
+	);
+
+	register_taxonomy( 'gallery_layout', array('gallery'), $args);
 }
 add_action( 'init', 'register_resto_bakery_taxonomies' );
 
@@ -205,8 +242,7 @@ function tipearte_resto_bakery_styles_and_scripts()
     wp_enqueue_script( 'imagesloaded-js', get_template_directory_uri() . '/assets/plugins/imagesloaded/imagesloaded.pkgd.min.js', array(), '', true );
     wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(), '', true );
     wp_enqueue_script( 'google-maps-js', get_template_directory_uri() . '/assets/js/google_maps.js', array(), '', true );
+    wp_enqueue_script( 'google-maps-library-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBTGnDWmYKPhKslCvPfkrcZDpgT_QMHT0s&callback=initMap', array(), '', true );
 }
-// TODO agregar google maps
-//<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTGnDWmYKPhKslCvPfkrcZDpgT_QMHT0s&callback=initMap" async defer></script>
 add_action( 'wp_enqueue_scripts', 'tipearte_resto_bakery_styles_and_scripts' );
 
