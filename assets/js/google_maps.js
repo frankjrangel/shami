@@ -1,3 +1,42 @@
+/**
+ * Google Maps
+ */
+
+//var map;
+//function initMap() {
+  //var myLatLng = {lat: 34.048233, lng:  -118.256015};
+  
+  //var styleArray = [
+    //{
+        //"featureType": "administrative.neighborhood",
+        //"elementType": "geometry.stroke",
+        //"stylers": [
+            //{
+                //"visibility": "on"
+            //}
+        //]
+    //}
+  //]
+
+  //var mapOptions = {
+    //zoom: 14,
+    //center: myLatLng,
+    //styles: styleArray,
+    //scrollwheel: false
+  //};
+
+  //map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  
+  //var image = 'assets/img/map_marker.png';
+  //var marker = new google.maps.Marker({
+    //position: myLatLng,
+    //map: map,
+    //icon: image,
+    //title: 'Groggery'
+  //});
+  
+//};
+
 function initMap  () {
     var map;
     var bounds = new google.maps.LatLngBounds();
@@ -13,7 +52,9 @@ function initMap  () {
     // Multiple Markers
     var markers = [
         ['Dot Baires Shopping', -34.545737,-58.4905297],
-        ['Gurruchaga 691, Palermo', -34.595769,-58.4415002]
+        ['Gurruchaga 691, Palermo', -34.595769,-58.4415002],
+		['Calle 2, 855, Sta Teresita', -36.538730, -56.689746],
+		['Chioza 2440, San Bernardo', -36.690711, -56.677841],
     ];
 
     // Info Window Content
@@ -54,8 +95,28 @@ function initMap  () {
 
     // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
     var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-        this.setZoom(12);
+        this.setZoom(7);
         google.maps.event.removeListener(boundsListener);
     });
+
+	google.maps.event.addDomListener(document.getElementById('dot'), 'click', function() {
+		map.setCenter({ lat: -34.545737, lng: -58.4905297})
+		map.setZoom(14);
+	});
+	
+	google.maps.event.addDomListener(document.getElementById('gurruchaga'), 'click', function() {
+		map.setCenter({ lat: -34.595769, lng: -58.4415002})
+		map.setZoom(14);
+	});
+	
+	google.maps.event.addDomListener(document.getElementById('teresita'), 'click', function() {
+		map.setCenter({ lat: -36.538730, lng: -56.689746})
+		map.setZoom(16);
+	});
+
+	google.maps.event.addDomListener(document.getElementById('bernardo'), 'click', function() {
+		map.setCenter({ lat: -36.690711, lng: -56.677841})
+		map.setZoom(16);
+	});
 
 }

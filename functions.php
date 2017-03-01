@@ -25,7 +25,7 @@ function tipearte_resto_bakery_setup()
 	function bootstrap_nav()
 	{
 		wp_nav_menu( array(
-			'theme_location'    => 'header-menu',
+			'theme_location'    => 'nav-menu',
 			'depth'             => 2,
 			'container'         => 'false',
 			'menu_class'        => 'nav navbar-nav navbar-right',
@@ -245,4 +245,128 @@ function tipearte_resto_bakery_styles_and_scripts()
     wp_enqueue_script( 'google-maps-library-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBTGnDWmYKPhKslCvPfkrcZDpgT_QMHT0s&callback=initMap', array(), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'tipearte_resto_bakery_styles_and_scripts' );
+
+// Resgiter custom fields
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_about',
+		'title' => 'About',
+		'fields' => array (
+			array (
+				'key' => 'field_58b5887c25bb3',
+				'label' => 'Posición',
+				'name' => 'about_position',
+				'type' => 'number',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'min' => '',
+				'max' => '',
+				'step' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'about',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_main-page',
+		'title' => 'Main Page',
+		'fields' => array (
+			array (
+				'key' => 'field_58af14945588f',
+				'label' => 'Fondo de bienvenida',
+				'name' => 'header_background',
+				'type' => 'image',
+				'save_format' => 'url',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page_type',
+					'operator' => '==',
+					'value' => 'front_page',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_menu',
+		'title' => 'Menu',
+		'fields' => array (
+			array (
+				'key' => 'field_58b447ccd7e48',
+				'label' => 'Precio',
+				'name' => 'menu_price',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '$',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => 10,
+			),
+			array (
+				'key' => 'field_58b448907b5f5',
+				'label' => 'Posición',
+				'name' => 'menu_position',
+				'type' => 'number',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'min' => '',
+				'max' => '',
+				'step' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'menu',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
 

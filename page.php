@@ -415,9 +415,12 @@
       <section class="section_map-heading" id="section_contacts">
         <div class="container">
           <div class="row">
-            <div class="col-sm-12">
+			<div class="col-sm-12">
+				<style>
+					.map__address a{ cursor: pointer; }
+				</style>
 				<h2 class="map__title">Encontranos en el mapa</h2>
-                <p class="map__address">Dot Baires Shopping | Gurruchaga 691</p>
+                <p class="map__address"><a id="dot">Dot Baires Shopping</a> | <a id="gurruchaga">Gurruchaga 691</a> | <a id="teresita">Calle 2, 855, Sta Teresita</a> | <a id="bernardo">Chioza 2440, San Bernardo</a></p>
             </div>
           </div> <!-- .row -->
         </div> <!-- .container -->

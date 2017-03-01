@@ -1,7 +1,7 @@
 
 
       <!-- section footer -->
-      <footer class="section_footer">
+      <footer class="section_footer" id="section_footer">
         <div class="container">
           <div class="row">
             <div class="col-lg-3 col-sm-6">
