@@ -107,7 +107,6 @@ Last change:	12/26/2016
     	height: 100%;
 		.row {
 			display: table;
-			width: 100%;
 			height: 100%;
 			[class*="col-"] {
 				display: table-cell;
@@ -1136,7 +1135,7 @@ Last change:	12/26/2016
 	.map__address {
 		color: #fff;
 		font-size: (@font-size-base + 10px);
-		padding-bottom: 40px;
+		/*padding-bottom: 40px;*/
 		@media(max-width: @screen-sm-max) {
 	        font-size: (@font-size-base + 8px);
 	    }
@@ -1154,6 +1153,50 @@ Last change:	12/26/2016
 	> .section_row {
 		#map {
 			height: 40vh;
+		}
+	}
+}
+
+.map_nav {
+	margin-bottom: 80px;
+	@media(max-width: @screen-xs-max) {
+        margin-bottom: 10px;
+    }
+	> li {
+		width: (100% / 4);
+		@media(max-width: @screen-xs-max) {
+	        width: 50%;
+	        margin: 0 25%;
+	    }
+		> a {
+			text-align: center;
+			font-size: (@font-size-base + 2px);
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: @brand-accent;
+			@media(max-width: @screen-xs-max) {
+		        font-size: (@font-size-base - 2px);
+		    }
+			&:hover {
+				color: #F1AE2B;
+				background-color: transparent;
+				transition: color 0.15s;
+			}
+		}
+	}
+	li.active {
+		&:before {
+			content: "";
+			position: absolute;
+			top: 92%;
+			left: 0;
+			right: 0;
+			height: 4px;
+			background-color: #F1AE2B;
+			@media(max-width: @screen-xs-max) {
+		        height: 2px;
+		    }
 		}
 	}
 }

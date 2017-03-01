@@ -1,55 +1,64 @@
+	<!-- section footer -->
+	<style>
+		.section_footer .section_footer_heading { color: white}
+	</style>
+	<footer class="section_footer" id="section_footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-sm-6">
+					<h3 class="section_footer_heading">Horarios</h3>
+					<p><i class="icon ion-ios-location-outline"></i> Dot Baires Shopping, CABA</p>
+					<p><b>Lun-Jue: </b>10 h - 24 h</p>
+					<p><b>Sab-Dom: </b>10 h - 2 h</p>
+					<p><b>Feriados: </b>10 h - 2 h</p>
+					<p><i class="icon ion-ios-location-outline"></i> Av. Gurruchaga 691, CABA</p>
+					<p><b>Lun-Jue: </b>10 h - 24 h</p>
+					<p><b>Sab-Dom: </b>10 h - 2 h</p>
+					<p><b>Feriados: </b>10 h - 2 h</p>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<style>
+						@media( max-width: 768px ) {
+							.horarios_relleno{
+								display: none;
+							}
+						}
+					</style>
+					<h3 style="opacity:0" class="section_footer_heading horarios_relleno">Horarios</h3>
+					<p><i class="icon ion-ios-location-outline"></i> Calle 2, número 855, Santa Teresita, Provincia BA</p>
+					<p><b>Lun-Jue: </b>10 h - 24 h</p>
+					<p><b>Sab-Dom: </b>10 h - 2 h</p>
+					<p><b>Feriados: </b>10 h - 2 h</p>
+					<p><i class="icon ion-ios-location-outline"></i> Av. Chiozza 2440, San Bernardo, Provincia BA</p>
+					<p><b>Lun-Jue: </b>10 h - 24 h</p>
+					<p><b>Sab-Dom: </b>10 h - 2 h</p>
+					<p><b>Feriados: </b>10 h - 2 h</p>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<h3 class="section_footer_heading">Contacto</h3>
+					<p>Lunes a Domingo de 10 a 23 hrs</p>
+					<p><i class="icon ion-ios-telephone-outline"></i> 011 4854-1790 / 3740 4858</p>
+					<p><i class="icon ion-ios-email-outline"></i> info@shami.com.ar</p>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<h3 class="section_footer_heading">Seguinos</h3>
+					<div class="social">
+						<ul>
+							<li class="social_icon"><a href="#"><i class="icon ion-social-facebook-outline"></i></a></li>
+							<li class="social_icon"><a href="#"><i class="ion-social-foursquare"></i></a></li>
+						</ul>
+					</div> <!-- .social -->
+				</div>
+			</div> <!-- .row -->
+			<div class="row">
+				<div class="col-sm-12">
+					<hr>
+					<p>&#169; 2017 Shamy. Todos los derechos reservados.</p>
+				</div>
+			</div> <!-- .row -->
+		</div> <!-- .container -->
+	</footer>
 
-
-      <!-- section footer -->
-      <footer class="section_footer" id="section_footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-sm-6">
-              <h3 class="section_footer_heading">Contacts</h3>
-              <p><i class="icon ion-ios-location-outline"></i> 10987 1st Avenue, Lorem City, CA</p>
-              <p><i class="icon ion-ios-telephone-outline"></i> +1 789 123 45 44</p>
-              <p><i class="icon ion-ios-email-outline"></i> admin@groggery.com</p>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <h3 class="section_footer_heading">Follow us</h3>
-              <p><b>Download our app:</b></p>
-              <ul>
-                <li class="app_icon"><a href="#"><i class="icon ion-social-apple-outline"></i></a></li>
-                <li class="app_icon"><a href="#"><i class="icon ion-social-android-outline"></i></a></li>
-                <li class="app_icon"><a href="#"><i class="icon ion-social-windows-outline"></i></a></li>
-              </ul>
-              <div class="social">
-                <ul>
-                  <li><p><b>Social: </b></p></li>
-                  <li class="social_icon"><a href="#"><i class="icon ion-social-facebook-outline"></i></a></li>
-                  <li class="social_icon"><a href="#"><i class="icon ion-social-twitter-outline"></i></a></li>
-                  <li class="social_icon"><a href="#"><i class="icon ion-social-instagram-outline"></i></a></li>
-                  <li class="social_icon"><a href="#"><i class="ion-social-foursquare"></i></a></li>
-                </ul>
-              </div> <!-- .social -->
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <h3 class="section_footer_heading">Opening hours</h3>
-              <p><b>Mon: </b>3PM - 9PM</p>
-              <p><b>Tue-Fri: </b>11AM - 12PM</p>
-              <p><b>Sat-Sun: </b>9AM - 12PM</p>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <h3 class="section_footer_heading">Support</h3>
-              <p><a href="#">Help & Support</a></p>
-              <p><a href="#">Privacy Policy</a></p>
-              <p><a href="#">Terms & Conditions</a></p>
-            </div>
-          </div> <!-- .row -->
-          <div class="row">
-            <div class="col-sm-12">
-              <hr>
-              <p>&#169; 2017 Shamy. Todos los derechos reservados.</p>
-            </div>
-          </div> <!-- .row -->
-        </div> <!-- .container -->
-      </footer>
-    
 	<?php wp_footer(); ?>
   </body>
 </html>

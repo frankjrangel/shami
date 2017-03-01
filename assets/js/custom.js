@@ -136,6 +136,15 @@ $(function() {
                 e.preventDefault();
             });
 
+            // Filter items on click
+            $(".map_nav").on('click', 'a', function(e) {
+                var elem = $(this);
+
+                // Change active button
+                elem.parents("li").addClass("active").siblings("li").removeClass("active");
+
+                e.preventDefault();
+            });
 
             /**
              * Gallery (layout)

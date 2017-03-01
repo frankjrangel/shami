@@ -116,7 +116,7 @@ function register_resto_bakery_post_types() {
 		'labels' => $labels,
 		'public' => true,
 		'has_archive' => true,
-		'supports' => array( 'title', 'editor', 'thumbnail'),
+		'supports' => array( 'title', 'thumbnail'),
 	);
 	register_post_type( 'gallery', $args );
 
@@ -197,30 +197,6 @@ function register_resto_bakery_taxonomies() {
 	);
 
 	register_taxonomy( 'about_layout', array('about'), $args);
-
-	// Regsiter about structure taxonomy
-	$labels = array(
-		'name'              => 'Estructura',
-		'singular_name'     => 'Estructura',
-		'search_items'      => 'Buscar estructura',
-		'all_items'         => 'Todas las estructuras',
-		'edit_item'         => 'Editar estructura',
-		'update_item'       => 'Actualizar estructura',
-		'add_new_item'      => 'Agregar estructura',
-		'new_item_name'     => 'Nombre de estructura',
-		'menu_name'         => 'Estructura',
-	);
-
-	$args = array(
-		'hierarchical'      => true,
-		'labels'            => $labels,
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'galeria-estructura' ),
-	);
-
-	register_taxonomy( 'gallery_layout', array('gallery'), $args);
 }
 add_action( 'init', 'register_resto_bakery_taxonomies' );
 
@@ -294,6 +270,48 @@ if(function_exists("register_field_group"))
 				'key' => 'field_58af14945588f',
 				'label' => 'Fondo de bienvenida',
 				'name' => 'header_background',
+				'type' => 'image',
+				'save_format' => 'url',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_58b73f935ef9f',
+				'label' => 'Título Galería',
+				'name' => 'gallery_title',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_58b740035efa0',
+				'label' => 'Texto Galería',
+				'name' => 'gallery_text',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_58b6ec09b32bf',
+				'label' => 'Fondo reseñas',
+				'name' => 'review_background',
+				'type' => 'image',
+				'save_format' => 'url',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_58b6ec53928fb',
+				'label' => 'Fondo Mapa',
+				'name' => 'map_background',
 				'type' => 'image',
 				'save_format' => 'url',
 				'preview_size' => 'thumbnail',

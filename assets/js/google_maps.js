@@ -1,48 +1,10 @@
-/**
- * Google Maps
- */
-
-//var map;
-//function initMap() {
-  //var myLatLng = {lat: 34.048233, lng:  -118.256015};
-  
-  //var styleArray = [
-    //{
-        //"featureType": "administrative.neighborhood",
-        //"elementType": "geometry.stroke",
-        //"stylers": [
-            //{
-                //"visibility": "on"
-            //}
-        //]
-    //}
-  //]
-
-  //var mapOptions = {
-    //zoom: 14,
-    //center: myLatLng,
-    //styles: styleArray,
-    //scrollwheel: false
-  //};
-
-  //map = new google.maps.Map(document.getElementById('map'), mapOptions);
-  
-  //var image = 'assets/img/map_marker.png';
-  //var marker = new google.maps.Marker({
-    //position: myLatLng,
-    //map: map,
-    //icon: image,
-    //title: 'Groggery'
-  //});
-  
-//};
-
 function initMap  () {
     var map;
     var bounds = new google.maps.LatLngBounds();
     var mapOptions = {
         scrollwheel: false,
-        mapTypeId: 'roadmap'
+        mapTypeId: 'roadmap',
+		mapTypeControl: false
     };
 
     // Display a map on the page
@@ -61,11 +23,16 @@ function initMap  () {
     var infoWindowContent = [
         ['<div class="info_content">' +
         '<h3>Dot Baires Shopping</h3>' +
-        '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>'],
+        '<p></p>' + '</div>'],
         ['<div class="info_content">' +
         '<h3>Gurruchaga 691, Palermo</h3>' +
-        '<p>The Palace of Westminster is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
-        '</div>']
+        '<p></p>' + '</div>'],
+        ['<div class="info_content">' +
+        '<h3>Calle 2, número 855, Santa Teresita</h3>' +
+        '<p></p>' + '</div>'],
+        ['<div class="info_content">' +
+        '<h3>Av. Chiozza 2440, San Bernardo</h3>' +
+        '<p></p>' + '</div>']
     ];
 
     // Display multiple markers on a map
@@ -111,12 +78,12 @@ function initMap  () {
 	
 	google.maps.event.addDomListener(document.getElementById('teresita'), 'click', function() {
 		map.setCenter({ lat: -36.538730, lng: -56.689746})
-		map.setZoom(16);
+		map.setZoom(15);
 	});
 
 	google.maps.event.addDomListener(document.getElementById('bernardo'), 'click', function() {
 		map.setCenter({ lat: -36.690711, lng: -56.677841})
-		map.setZoom(16);
+		map.setZoom(15);
 	});
 
 }
