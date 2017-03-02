@@ -10,9 +10,15 @@
 				<div class="col-sm-6 col-sm-offset-3">
 					<style>
 						.welcome_content img{ 
-							width: 20%;
+							width: 100%;
 							height: auto; 
-							min-width: 200px;
+							min-width: 250px;
+							max-width: 450px;
+						}
+						@media (max-width: 768px){
+							.welcome_content img{
+								width: 60%;
+							}
 						}
 					</style>
 			  		<div class="welcome_content">
@@ -55,37 +61,22 @@
 
 			<div class="row">
 				<div class="col-sm-12">
-					<?php // Query menu section title
-						$the_query = new WP_Query( array(
-							'post_type' => 'menu',
-							'tax_query' => array( array(
-								'taxonomy' => 'meal_type',
-								'field' => 'slug',
-								'terms' => 'menu-titulo',
-							) ),
-						) );
-
-						while ( $the_query->have_posts() ) : $the_query->the_post() ?>
-							<style>
-								.section_menu .section_title:before { content: "<?php 
-																					$title = get_the_title();
-																					$title = explode(' ', $title);
-																					$last_word = array_pop($title);
-																					echo $last_word;
-																				?>" }
-								@media ( max-width: 768px ) {
-									.section_menu .section_title:before { display: none; }
-								}
-							</style>
-							<h2 class="section_title">&#8722; <?php the_title() ?> &#8722;</h2>
-							<hr class="section_title_line">
-							<p class="section_caption">
-								<?php the_content() ?>
-							</p>
-					<?php
-						endwhile;
-						wp_reset_postdata();
-					?>
+					<style>
+						.section_menu .section_title:before { content: "<?php 
+																			$title = the_field('menu_title');
+																			$title = explode(' ', $title);
+																			$last_word = array_pop($title);
+																			echo $last_word;
+																		?>" }
+						@media ( max-width: 768px ) {
+							.section_menu .section_title:before { display: none; }
+						}
+					</style>
+					<h2 class="section_title">&#8722; <?php the_field('menu_title') ?> &#8722;</h2>
+					<hr class="section_title_line">
+					<p class="section_caption">
+						<?php the_field('menu_text') ?>
+					</p>
 				</div>
 			</div>
 
@@ -105,7 +96,6 @@
 								<?php endif ?>
 								><a href="#" role="tab" data-filter=".menu_<?php echo $term->name ?>"><?php echo $term->name ?></a></li>
 							<?php endforeach ?>
-							<!-- TODO delete, por ahora para referencia <li role="presentation"><a href="#" role="tab" data-filter=".menu_desserts">Desserts</a></li> -->
 					</ul>
 				</div>
 			</div>
@@ -127,11 +117,11 @@
 					) );
 
 					while ( $the_query->have_posts() ) : $the_query->the_post() ?>
-						<div class="col-sm-4 menu__item menu_<?php echo $term->name ?>">
+						<div class="col-sm-4 menu__item menu_<?php echo $term->name ?>" style="cursor:pointer">
 							<div class="menu__item_hover">
 							<img src="<?php the_post_thumbnail_url() ?>" class="img-responsive" alt="<?php the_title() ?>">
 								<div class="menu__item_overlay">
-									<h3 style="font-family: 'Josefin Sans"><?php the_title() ?></h3>
+									<h3 class="menu__item_title"><?php the_title() ?></h3>
 									<p class="overlay_info"><?php the_content() ?></p>
 									<p class="overlay_price">&#36;<?php the_field('menu_price') ?></p>
 								</div>

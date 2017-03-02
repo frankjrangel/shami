@@ -104,7 +104,8 @@ $(function() {
             });
 
             // Close collapsed navbar on click
-            $(".navbar-nav").on('click', 'a', function() {
+            //$(".navbar-nav").on('click', 'a', function() {
+			$(".navbar a").click(function() {
                 navbarCollapse.collapse('hide');
             });
 
