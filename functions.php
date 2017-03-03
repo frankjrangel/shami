@@ -120,20 +120,20 @@ function register_resto_bakery_post_types() {
 	);
 	register_post_type( 'gallery', $args );
 
-	//// Register events post type
-	//$labels = array(
-		//'name' => 'Eventos',
-		//'singular_name' => 'Evento',
-	//);
-	//$args = array(
-		//'labels' => $labels,
-		//'public' => true,
-		//'has_archive' => true,
-		//'supports' => array( 'title', 'editor','thumbnail'),
-	//);
-	//register_post_type( 'events', $args );
+	// register events post type
+	$labels = array(
+		'name' => 'Eventos',
+		'singular_name' => 'Evento',
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'supports' => array( 'title', 'editor','thumbnail'),
+	);
+	register_post_type( 'event', $args );
 	
-	// Register gallery post type
+	// register gallery post type
 	$labels = array(
 		'name' => 'Establecimientos',
 		'singular_name' => 'Establecimiento',
@@ -276,6 +276,14 @@ if(function_exists("register_field_group"))
 				'library' => 'all',
 			),
 			array (
+				'key' => 'field_58b9d0f1bcf9a',
+				'label' => 'Sección Menu',
+				'name' => 'menu_section_enabled',
+				'type' => 'true_false',
+				'message' => 'Activar',
+				'default_value' => 0,
+			),
+			array (
 				'key' => 'field_58b83e030ee2b',
 				'label' => 'Título Menu',
 				'name' => 'menu_title',
@@ -286,6 +294,17 @@ if(function_exists("register_field_group"))
 				'append' => '',
 				'formatting' => 'html',
 				'maxlength' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_58b9d0f1bcf9a',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
 			),
 			array (
 				'key' => 'field_58b83e3e0ee2c',
@@ -298,6 +317,17 @@ if(function_exists("register_field_group"))
 				'append' => '',
 				'formatting' => 'html',
 				'maxlength' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_58b9d0f1bcf9a',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
 			),
 			array (
 				'key' => 'field_58b73f935ef9f',

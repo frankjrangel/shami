@@ -55,6 +55,7 @@
 		<div class="welcome_bg"></div>
 	</section>
 
+	<?php if ( get_field('menu_section_enabled') ) : ?>
     <!-- section menu -->
     <section class="section_menu" id="section_menu">
 		<div class="container">
@@ -63,7 +64,7 @@
 				<div class="col-sm-12">
 					<style>
 						.section_menu .section_title:before { content: "<?php 
-																			$title = the_field('menu_title');
+																			$title = get_field('menu_title');
 																			$title = explode(' ', $title);
 																			$last_word = array_pop($title);
 																			echo $last_word;
@@ -134,7 +135,8 @@
 				?>
         	</div> <!-- .row -->
         </div> <!-- .container -->
-    </section>
+	</section>
+	<?php endif; ?>
 
 	<!-- section review -->
 	<section class="section_review" style="background-image: url('<?php the_field("review_background") ?>')">
@@ -351,6 +353,72 @@
 				</div> <!-- .container -->
 			</section>
 		<?php endif; ?>
+
+	<!-- section events -->
+	<section class="section_events" id="section_events">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-12">
+				<h2 class="section_title">&#8722; <?php the_field('event_title') ?>&#8722;</h2>
+					<hr class="section_title_line">
+					<p class="section_caption"><?php the_field('event_text') ?></p>
+				</div> 
+			</div> <!-- .row -->
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="events">
+						<?php // Query events
+							$the_query = new WP_Query( array(
+								'post_type' => 'events',
+							) );
+
+							while ( $the_query->have_posts() ) : $the_query->the_post() ?>
+								<div class="events__item events__item_<?php //the_title() //TODO add one word logic ?>">
+									<div class="events-item__body">
+										<div class="events-item__content">
+											<h2><?php the_title() ?></h2>
+											<h3 class="events-item__content_extra extra_title"><?php the_title() ?></h3>
+											<p class="events-item__content_extra extra_caption"><?php the_content() ?></p>
+											<ul class="events-item__content_extra">
+											<li><i class="icon ion-ios-calendar-outline"></i><?php the_field('event_date') ?></li>
+											<li><i class="icon ion-ios-clock-outline"></i><?php the_field('event_time') ?></li>
+											</ul>
+											<!--<div class="events-item__content_extra">
+												<a href="#section_reservation" class="btn btn-default">Book now</a>
+											</div>-->
+										</div>
+									</div>
+								</div> <!-- .events_item -->
+						<?php 
+							endwhile; 
+							wp_reset_postdata();
+						?>
+
+	<!--					<div class="events__item events__item_wine">
+							<div class="events-item__body">
+								<div class="events-item__content">
+									<h2>Wine degustation</h2>
+									<h3 class="events-item__content_extra extra_title">Large selection of delicious wine</h3>
+									<p class="events-item__content_extra extra_caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique eius minima, dolorum eveniet amet aperiam eaque esse animi.</p>
+									<ul class="events-item__content_extra">
+										<li><i class="icon ion-ios-calendar-outline"></i> October 17, 2016</li>
+										<li><i class="icon ion-ios-clock-outline"></i> 19:30</li>
+									</ul>
+									<div class="events-item__content_extra">
+										<a href="#section_reservation" class="btn btn-default">Book now</a>
+									</div>
+								</div>
+							</div> 
+						</div> --><!-- .events_item -->
+
+					</div> <!-- .events -->
+				</div> 
+			</div> <!-- .row -->
+
+		</div> <!-- .container -->
+	</section> 
 
     <!-- section gallery -->
 	<section class="section_gallery" id="section_gallery">
