@@ -226,43 +226,7 @@ add_action( 'wp_enqueue_scripts', 'tipearte_resto_bakery_styles_and_scripts' );
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
-		'id' => 'acf_about',
-		'title' => 'About',
-		'fields' => array (
-			array (
-				'key' => 'field_58b5887c25bb3',
-				'label' => 'Posición',
-				'name' => 'about_position',
-				'type' => 'number',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'min' => '',
-				'max' => '',
-				'step' => '',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'about',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-	register_field_group(array (
+		// Main Page Custom Fields
 		'id' => 'acf_main-page',
 		'title' => 'Main Page',
 		'fields' => array (
@@ -275,6 +239,8 @@ if(function_exists("register_field_group"))
 				'preview_size' => 'thumbnail',
 				'library' => 'all',
 			),
+
+			// Section Menu
 			array (
 				'key' => 'field_58b9d0f1bcf9a',
 				'label' => 'Sección Menu',
@@ -329,6 +295,181 @@ if(function_exists("register_field_group"))
 					'allorany' => 'all',
 				),
 			),
+
+			// Section Review
+			array (
+				'key' => 'field_58bd7c73836a5',
+				'label' => 'Sección Reseñas',
+				'name' => 'section_review_enabled',
+				'type' => 'true_false',
+				'message' => 'Activar',
+				'default_value' => 0,
+			),
+			array (
+				'key' => 'field_58bd8173d6c65',
+				'label' => 'Título reseñas',
+				'name' => 'review_title',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_58bd7c73836a5',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+			),
+			array (
+				'key' => 'field_58b6ec09b32bf',
+				'label' => 'Fondo reseñas',
+				'name' => 'review_background',
+				'type' => 'image',
+				'save_format' => 'url',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_58bd7c73836a5',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+			),
+			
+			// Section About
+			array (
+				'key' => 'field_58bd7db7836a6',
+				'label' => 'Sección Nosotros',
+				'name' => 'section_about_enabled',
+				'type' => 'true_false',
+				'message' => 'Activar',
+				'default_value' => 0,
+			),
+			array (
+				'key' => 'field_58b83e030as63',
+				'label' => 'Título Nosotros',
+				'name' => 'about_title',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_58bd7db7836a6',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+			),
+			array (
+				'key' => 'field_58b83e3e0ag76',
+				'label' => 'Texto Nosotros',
+				'name' => 'about_text',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_58bd7db7836a6',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+			),
+
+			// Section Event
+			array (
+				'key' => 'field_58bd7e1f836a8',
+				'label' => 'Sección Eventos',
+				'name' => 'section_event_enabled',
+				'type' => 'true_false',
+				'message' => 'Activar',
+				'default_value' => 0,
+			),
+			array (
+				'key' => 'field_50b83e123as63',
+				'label' => 'Título Eventos',
+				'name' => 'event_title',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_58bd7e1f836a8',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+			),
+			array (
+				'key' => 'field_58b54e5a0kj76',
+				'label' => 'Texto Eventos',
+				'name' => 'event_text',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_58bd7e1f836a8',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+			),
+
+			// Section Gallery
+			array (
+				'key' => 'field_58md7o1f765a8',
+				'label' => 'Sección Galería',
+				'name' => 'section_gallery_enabled',
+				'type' => 'true_false',
+				'message' => 'Activar',
+				'default_value' => 0,
+			),
 			array (
 				'key' => 'field_58b73f935ef9f',
 				'label' => 'Título Galería',
@@ -340,6 +481,17 @@ if(function_exists("register_field_group"))
 				'append' => '',
 				'formatting' => 'html',
 				'maxlength' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_58md7o1f765a8',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
 			),
 			array (
 				'key' => 'field_58b740035efa0',
@@ -352,16 +504,20 @@ if(function_exists("register_field_group"))
 				'append' => '',
 				'formatting' => 'html',
 				'maxlength' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_58md7o1f765a8',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
 			),
-			array (
-				'key' => 'field_58b6ec09b32bf',
-				'label' => 'Fondo reseñas',
-				'name' => 'review_background',
-				'type' => 'image',
-				'save_format' => 'url',
-				'preview_size' => 'thumbnail',
-				'library' => 'all',
-			),
+
+			// Section Map
 			array (
 				'key' => 'field_58b6ec53928fb',
 				'label' => 'Fondo Mapa',
@@ -371,6 +527,17 @@ if(function_exists("register_field_group"))
 				'preview_size' => 'thumbnail',
 				'library' => 'all',
 			),
+
+			array (
+				'key' => 'field_58bd7dfb836a7',
+				'label' => 'Sección Únete',
+				'name' => 'section_join_us_enabled',
+				'type' => 'true_false',
+				'message' => 'Activar',
+				'default_value' => 0,
+			),
+
+			
 		),
 		'location' => array (
 			array (
@@ -440,5 +607,89 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+	register_field_group(array (
+		'id' => 'acf_about',
+		'title' => 'About',
+		'fields' => array (
+			array (
+				'key' => 'field_58b5887c25bb3',
+				'label' => 'Posición',
+				'name' => 'about_position',
+				'type' => 'number',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'min' => '',
+				'max' => '',
+				'step' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'about',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_event',
+		'title' => 'Event',
+		'fields' => array (
+			array (
+				'key' => 'field_58b3652c25cc3',
+				'label' => 'Fecha',
+				'name' => 'event_date',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_58b3212g57cw2',
+				'label' => 'Hora',
+				'name' => 'event_time',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'event',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
 }
-
