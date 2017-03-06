@@ -2,6 +2,9 @@
 
 $the_query = new WP_Query( array(
                 'post_type' => 'event',
+                'meta_key'	=> 'event_date',
+                'orderby'	=> 'meta_value_num',
+                'order'		=> 'ASC'
             ) );
 
 if ( $the_query->post_count > 0 ) : ?>
@@ -37,8 +40,11 @@ if ( $the_query->post_count > 0 ) : ?>
 
                             $identifier = get_the_title();
                             $identifier = explode(' ', $identifier);
-                            $identifier = array_pop($identifier); ?>
+                            $identifier = array_pop($identifier);
 
+                            $date = get_field('event_date', false, false);
+                            $date = new DateTime($date);
+                                        ?>
                             <style>
                                 .events__item_<?php echo $identifier; ?> {
                                     background: url('<?php the_post_thumbnail_url() ?>') no-repeat center center / cover;
@@ -51,9 +57,10 @@ if ( $the_query->post_count > 0 ) : ?>
                                         <h3 class="events-item__content_extra extra_title"><?php the_title() ?></h3>
                                         <p class="events-item__content_extra extra_caption"><?php the_content() ?></p>
                                         <ul class="events-item__content_extra">
-                                            <li><i class="icon ion-ios-calendar-outline"></i> <?php the_field('event_date') ?></li>
+                                            <li><i class="icon ion-ios-calendar-outline"></i> <?php echo date_i18n('d F Y', $date->getTimestamp()); ?></li>
                                             <li><i class="icon ion-ios-clock-outline"></i> <?php the_field('event_time') ?></li>
                                         </ul>
+                                            
                                         <!--<div class="events-item__content_extra">
                                             <a href="#section_reservation" class="btn btn-default">Book now</a>
                                         </div>-->

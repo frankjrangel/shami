@@ -1,5 +1,12 @@
 <?php get_header(); ?>
 
+	<?php 
+		$timezone_offet = get_option( 'gmt_offset' );
+		echo $timezone_offet;
+		
+		echo current_time( 'timestamp', $gmt = 0 );	
+	?>
+
 	<!-- CONTENT - RESTO BAKERY SECTIONS
 	 ================================================== -->
 

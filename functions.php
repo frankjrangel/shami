@@ -519,6 +519,37 @@ if(function_exists("register_field_group"))
 
 			// Section Map
 			array (
+				'key' => 'field_58md4r9s865a8',
+				'label' => 'Sección Mapa',
+				'name' => 'section_map_enabled',
+				'type' => 'true_false',
+				'message' => 'Activar',
+				'default_value' => 0,
+			),
+			array (
+				'key' => 'field_58b09f675df9f',
+				'label' => 'Título Mapa',
+				'name' => 'map_title',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_58md4r9s865a8',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+			),
+			array (
 				'key' => 'field_58b6ec53928fb',
 				'label' => 'Fondo Mapa',
 				'name' => 'map_background',
@@ -526,6 +557,17 @@ if(function_exists("register_field_group"))
 				'save_format' => 'url',
 				'preview_size' => 'thumbnail',
 				'library' => 'all',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_58md4r9s865a8',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
 			),
 
 			array (
@@ -649,16 +691,13 @@ if(function_exists("register_field_group"))
 		'title' => 'Event',
 		'fields' => array (
 			array (
-				'key' => 'field_58b3652c25cc3',
+				'key' => 'field_58bdd1bf68e06',
 				'label' => 'Fecha',
 				'name' => 'event_date',
-				'type' => 'text',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
+				'type' => 'date_picker',
+				'date_format' => 'yymmdd',
+				'display_format' => 'dd/mm/yy',
+				'first_day' => 1,
 			),
 			array (
 				'key' => 'field_58b3212g57cw2',

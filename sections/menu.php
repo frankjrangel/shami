@@ -50,7 +50,7 @@
                 $the_query = new WP_Query( array(
                     'post_type' => 'menu',
                     'meta_key'  => 'menu_position',
-                    'orderby'   => 'meta_value',
+                    'orderby'   => 'meta_value_num',
                     'order'		=> 'ASC',
                     'tax_query' => array( array(
                         'taxonomy' => 'meal_type',
