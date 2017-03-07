@@ -40,31 +40,41 @@ if ( $the_query->post_count > 0 ) : ?>
 
                             $identifier = get_the_title();
                             $identifier = explode(' ', $identifier);
-                            $identifier = array_pop($identifier);
+                            $identifier = implode('_', $identifier);
 
                             $date = get_field('event_date', false, false);
                             $date = new DateTime($date);
-                                        ?>
+						?>
                             <style>
                                 .events__item_<?php echo $identifier; ?> {
                                     background: url('<?php the_post_thumbnail_url() ?>') no-repeat center center / cover;
                                 }
                             </style>
-                            <div class="events__item events__item_<?php echo $identifier; ?>">
+                            <div class="events__item events__item_<?php echo $identifier ?>">
                                 <div class="events-item__body">
                                     <div class="events-item__content">
                                         <h2><?php the_title() ?></h2>
                                         <h3 class="events-item__content_extra extra_title"><?php the_title() ?></h3>
-                                        <p class="events-item__content_extra extra_caption"><?php the_content() ?></p>
+                                        <p class="events-item__content_extra extra_caption"><?php echo strip_shortcodes( get_the_content() ) ?></p>
                                         <ul class="events-item__content_extra">
-                                            <li><i class="icon ion-ios-calendar-outline"></i> <?php echo date_i18n('d F Y', $date->getTimestamp()); ?></li>
-                                            <li><i class="icon ion-ios-clock-outline"></i> <?php the_field('event_time') ?></li>
-                                        </ul>
-                                            
-                                        <!--<div class="events-item__content_extra">
-                                            <a href="#section_reservation" class="btn btn-default">Book now</a>
-                                        </div>-->
-                                    </div>
+                                            <li class="event_date_<?php echo $identifier ?>"><i class="icon ion-ios-calendar-outline"></i> <?php echo date_i18n('d F Y', $date->getTimestamp()) ?></li>
+                                            <li class="event_time_<?php echo $identifier ?>"><i class="icon ion-ios-clock-outline"></i> <?php the_field('event_time') ?></li>
+										</ul>
+										<?php $now = new DateTime("now") ?>
+										<?php if ( $date < $now ) : ?>
+											<div class="events-item__content_extra" style="padding-top: 10px;">
+												<style>
+													.event_time_<?php echo $identifier ?> { display:none; }
+													.event_date_<?php echo $identifier ?> { text-decoration: line-through; }
+													a.event_gallery_<?php echo $identifier ?> { display: none; }
+												</style>
+												<?php $images = get_post_gallery_images(); ?>
+												<?php foreach ( $images as $key => $image ) : ?>
+													<a <?php if ( $key == 0 ) { echo 'style="display:inline"'; } ?> href="<?php echo $image ?>" data-lightbox="gallery_<?php echo $identifier ?>" class="btn btn-default event_gallery_<?php echo $identifier ?>">Ver fotos</a>
+												<?php endforeach; ?>
+											</div>
+										<?php endif; ?>
+									</div>
                                 </div>
                             </div> <!-- .events_item -->
                     <?php 
