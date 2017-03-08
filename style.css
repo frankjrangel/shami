@@ -1,9 +1,9 @@
 /*------------------------------------------------------------------
 [Master Stylesheet]
 
-Project:		Groggery
+Project:		Resto Bakery
 Version:		1.0.0
-Created: 		10/22/2016
+Created: 		15/02/2017
 Last change:	12/26/2016
 -------------------------------------------------------------------*/
 /*------------------------------------------------------------------
@@ -7660,7 +7660,7 @@ button.close {
 }
 .section_slogan .slogan_title {
   color: #f1ae2b;
-  font-size: 114px;
+  font-size: 64px;
 }
 @media (max-width: 767px) {
   .section_slogan .slogan_title {
@@ -7898,12 +7898,13 @@ button.close {
   transform: rotate(-90deg);
   transition: all .3s;
   font-size: 62px;
+  font-size: 35px;
   padding: 0;
   margin-top: 180px;
 }
 @media (max-width: 767px) {
   .events__item h2 {
-    font-size: 52px;
+    font-size: 42px;
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
     margin-top: 5%;

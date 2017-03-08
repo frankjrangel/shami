@@ -70,7 +70,7 @@ if ( $the_query->post_count > 0 ) : ?>
 												</style>
 												<?php $images = get_post_gallery_images(); ?>
 												<?php foreach ( $images as $key => $image ) : ?>
-													<a <?php if ( $key == 0 ) { echo 'style="display:inline"'; } ?> href="<?php echo $image ?>" data-lightbox="gallery_<?php echo $identifier ?>" class="btn btn-default event_gallery_<?php echo $identifier ?>">Ver fotos</a>
+													<a <?php if ( $key == 0 ) { echo 'style="display:inline"'; } ?> href="<?php echo $image ?>" data-lightbox="gallery_<?php echo $identifier ?>" class="btn btn-default event_gallery_<?php echo $identifier ?>">Mirá como estuvo</a>
 												<?php endforeach; ?>
 											</div>
 										<?php endif; ?>

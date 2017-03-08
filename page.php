@@ -25,11 +25,11 @@
 		if ( get_field('section_about_enabled') )
 			get_template_part('sections/about');
 
-		if ( get_field('section_gallery_enabled') )
-			get_template_part('sections/gallery');
-
 		if ( get_field('section_join_us_enabled') )
 			get_template_part('sections/join_us');
+
+		if ( get_field('section_gallery_enabled') )
+			get_template_part('sections/gallery');
 
 		if ( get_field('section_event_enabled') )
 			get_template_part('sections/event');

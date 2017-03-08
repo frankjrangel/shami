@@ -8,7 +8,7 @@
 				<div class="col-lg-3 col-sm-6">
 					<h3 class="section_footer_heading">Horarios</h3>
 					<p><i class="icon ion-ios-location-outline"></i> Dot Baires Shopping, CABA</p>
-					<p><b>Lun-Jue: </b>10 h - 24 h</p>
+					<p><b>Lun-Jue: </b>10 h - 23 h</p>
 					<p><b>Sab-Dom: </b>10 h - 2 h</p>
 					<p><b>Feriados: </b>10 h - 2 h</p>
 					<p><i class="icon ion-ios-location-outline"></i> Av. Gurruchaga 691, CABA</p>

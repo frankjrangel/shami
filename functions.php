@@ -132,7 +132,7 @@ function register_resto_bakery_post_types() {
 		'supports' => array( 'title', 'editor','thumbnail'),
 	);
 	register_post_type( 'event', $args );
-	
+
 	// register gallery post type
 	$labels = array(
 		'name' => 'Establecimientos',
@@ -461,6 +461,82 @@ if(function_exists("register_field_group"))
 				),
 			),
 
+			// Section Join Us
+			array (
+				'key' => 'field_19bd7a7w821d8',
+				'label' => 'Sección Únete',
+				'name' => 'section_join_us_enabled',
+				'type' => 'true_false',
+				'message' => 'Activar',
+				'default_value' => 0,
+			),
+			array (
+				'key' => 'field_50c98a213fd63',
+				'label' => 'Título Únete',
+				'name' => 'join_us_title',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_19bd7a7w821d8',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+			),
+			array (
+				'key' => 'field_58b53t5a2ly98',
+				'label' => 'Texto Únete',
+				'name' => 'join_us_text',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_19bd7a7w821d8',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+			),
+			array (
+				'key' => 'field_58b6fg45678fb',
+				'label' => 'Fondo Únete',
+				'name' => 'join_us_background',
+				'type' => 'image',
+				'save_format' => 'url',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_19bd7a7w821d8',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+			),
+
 			// Section Gallery
 			array (
 				'key' => 'field_58md7o1f765a8',
@@ -570,16 +646,6 @@ if(function_exists("register_field_group"))
 				),
 			),
 
-			array (
-				'key' => 'field_58bd7dfb836a7',
-				'label' => 'Sección Únete',
-				'name' => 'section_join_us_enabled',
-				'type' => 'true_false',
-				'message' => 'Activar',
-				'default_value' => 0,
-			),
-
-			
 		),
 		'location' => array (
 			array (
