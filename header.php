@@ -22,27 +22,27 @@
 
 	<!--  NAVBAR ================================================== -->
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-    	<div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-        	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar__collapse" aria-expanded="false">
-            	<span class="sr-only">Menú</span>
-            	<span class="icon-bar"></span>
-            	<span class="icon-bar"></span>
-            	<span class="icon-bar"></span>
-			</button>
+  <nav class="navbar navbar-default navbar-fixed-top">
+  	<div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar__collapse" aria-expanded="false">
+          <span class="sr-only">Menú</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-			<?php if ( has_custom_logo() ): ?>
-				<?php the_custom_logo() ?>
-			<?php else: ?>
-				<a class="navbar-brand" href="<?php bloginfo('url') ?>"><?php bloginfo('name') ?></a>
-			<?php endif; ?>
-        </div>
+        <?php if ( has_custom_logo() ): ?>
+          <?php the_custom_logo() ?>
+        <?php else: ?>
+          <a class="navbar-brand" href="<?php bloginfo('url') ?>"><?php bloginfo('name') ?></a>
+        <?php endif; ?>
+      </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar__collapse">
-			<?php bootstrap_nav(); ?>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar__collapse">
+			  <?php bootstrap_nav(); ?>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
