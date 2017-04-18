@@ -6,6 +6,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="assets/favicon/favicon_shami.ico">
 
+	<!-- Facebook sharing -->
+	<meta property="og:url" content="http://shami.com.ar"/>
+	<meta property="og:title" content="Shami | Arabian food and deli"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:description" content="Delicias árabes y shawarma"/>
+	<meta property="og:image" content="<?php the_field('facebook_thumbnail') ?>"/>
+
+	<meta name="description" content"Especialidad en Shawarma y comida típica del Medio Oriente."/>
+
 	<title><?php bloginfo('name') ?> | <?php bloginfo('description') ?></title>
 	<?php wp_head(); ?>
 </head>

@@ -54,6 +54,19 @@ add_action( 'after_setup_theme', 'tipearte_resto_bakery_setup' );
 
 // Register post types
 function register_resto_bakery_post_types() {
+	
+	// Register slider post type
+	$labels = array(
+		'name' => 'Slider',
+		'singular_name' => 'Imagen',
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'supports' => array( 'title', 'thumbnail'),
+	);
+	register_post_type( 'slider', $args );
 
 	// Register menu post type
 	$labels = array(
@@ -209,6 +222,8 @@ function tipearte_resto_bakery_styles_and_scripts()
 	wp_enqueue_style('lightbox-css', get_template_directory_uri() . '/assets/plugins/lightbox/dist/css/lightbox.css', array(), '', 'all');
 	wp_enqueue_style('ionicons-css', get_template_directory_uri() . '/assets/plugins/ionicons/css/ionicons.min.css', array(), '', 'all');
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
+	wp_enqueue_style( 'slick-css', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css' );
+	
 
 	// Javascript files
     wp_enqueue_script( 'jquery-min', get_template_directory_uri() . '/assets/plugins/jquery/jquery-1.12.4.min.js', array(), '', true );
@@ -218,7 +233,8 @@ function tipearte_resto_bakery_styles_and_scripts()
     wp_enqueue_script( 'imagesloaded-js', get_template_directory_uri() . '/assets/plugins/imagesloaded/imagesloaded.pkgd.min.js', array(), '', true );
     wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(), '', true );
     wp_enqueue_script( 'google-maps-js', get_template_directory_uri() . '/assets/js/google_maps.js', array(), '', true );
-    wp_enqueue_script( 'google-maps-library-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBTGnDWmYKPhKslCvPfkrcZDpgT_QMHT0s&callback=initMap', array(), '', true );
+	wp_enqueue_script( 'google-maps-library-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBTGnDWmYKPhKslCvPfkrcZDpgT_QMHT0s&callback=initMap', array(), '', true );
+	wp_enqueue_script( 'slick-slider', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js', array(), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'tipearte_resto_bakery_styles_and_scripts' );
 
@@ -234,6 +250,16 @@ if(function_exists("register_field_group"))
 				'key' => 'field_58af14945588f',
 				'label' => 'Fondo de bienvenida',
 				'name' => 'header_background',
+				'type' => 'image',
+				'save_format' => 'url',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+
+			array (
+				'key' => 'field_58as54947643o',
+				'label' => 'Thumbnail Facebook',
+				'name' => 'facebook_thumbnail',
 				'type' => 'image',
 				'save_format' => 'url',
 				'preview_size' => 'thumbnail',

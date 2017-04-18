@@ -66,7 +66,9 @@
                             <div class="menu__item_overlay">
                                 <h3 class="menu__item_title"><?php the_title() ?></h3>
                                 <p class="overlay_info"><?php the_content() ?></p>
-                                <p class="overlay_price">&#36;<?php the_field('menu_price') ?></p>
+                                <?php if ( get_field('menu_price') ) : ?>
+                                    <p class="overlay_price">&#36;<?php the_field('menu_price') ?></p>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

@@ -48,6 +48,10 @@ Last change:	12/26/2016
 
 
 /*** 2. Section: General styles ***/
+@media (min-width: 768px)
+{
+	.custom-logo { display:none; }
+}
 
 .section_title {
 	color: @brand-accent;
@@ -101,7 +105,7 @@ Last change:	12/26/2016
         content: "";
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
-        background-color: fade(black, 30%);
+        background-color: fade(black, 65%);
     }
     .container {
     	height: 100%;
@@ -121,6 +125,17 @@ Last change:	12/26/2016
 	}
     .welcome_content {
     	color: #F4F3DE;
+		img{ 
+			width: 100%;
+			height: auto; 
+			min-width: 250px;
+			max-width: 450px;
+		}
+		@media (max-width: 768px){
+			img{
+				width: 60%;
+			}
+		}
     	.welcome_content_heading {
     		font-size: 140px;
     		padding: 0;
@@ -192,6 +207,9 @@ Last change:	12/26/2016
     @media(max-width: @screen-sm-max) {
         background: black url(http://placehold.it/1920x1082) no-repeat center center / cover;
     }
+
+	.slick-track{height:100%;}
+	.slick-list{height: 100vh; margin-top: -100vh;}
 }
 
 

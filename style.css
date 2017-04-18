@@ -6964,6 +6964,11 @@ button.close {
 * Typography
 */
 /*** 2. Section: General styles ***/
+@media (min-width: 768px) {
+  .custom-logo {
+    display: none;
+  }
+}
 .section_title {
   color: #b15f5f;
   font-size: 44px;
@@ -7025,7 +7030,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.65);
 }
 .section_welcome .container {
   height: 100%;
@@ -7044,6 +7049,17 @@ button.close {
 }
 .section_welcome .welcome_content {
   color: #F4F3DE;
+}
+.section_welcome .welcome_content img {
+  width: 100%;
+  height: auto;
+  min-width: 250px;
+  max-width: 450px;
+}
+@media (max-width: 768px) {
+  .section_welcome .welcome_content img {
+    width: 60%;
+  }
 }
 .section_welcome .welcome_content .welcome_content_heading {
   font-size: 140px;
@@ -7138,6 +7154,13 @@ button.close {
   .welcome_bg {
     background: black url(http://placehold.it/1920x1082) no-repeat center center / cover;
   }
+}
+.welcome_bg .slick-track {
+  height: 100%;
+}
+.welcome_bg .slick-list {
+  height: 100vh;
+  margin-top: -100vh;
 }
 /*** 4. Section: About ***/
 .section_about {

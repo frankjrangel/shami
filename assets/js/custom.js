@@ -182,8 +182,10 @@ $(function() {
 
             if (scrollTop > 0 && navbarDefault.length) {
                 navbar.removeClass("navbar-default").addClass("navbar-inverse");
+				$('.custom-logo').fadeIn();
             } else if (scrollTop === 0) {
                 navbar.removeClass("navbar-inverse").addClass("navbar-default");
+				$('.custom-logo').fadeOut(100);
             }
 
             /**
@@ -195,5 +197,25 @@ $(function() {
 
         }
     });
+
+	/**
+	 * Welcome slider
+	 */
+    theWindow.on({
+        'load': function() {
+			$('.welcome_bg').slick({
+				autoplay: true,
+				//adaptiveHeight: true,
+				arrows: false,
+				draggable: false,
+				pauseOnHover: false,
+				swipe: false,
+				onInit: function(){
+                // This runs after the slickgrid is first initialized.
+                this.$list.css('height',this.$slider.parents('.welcome_bg').outerHeight(true))
+            }
+			});
+		}
+	});
 
 });

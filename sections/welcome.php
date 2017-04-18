@@ -2,20 +2,7 @@
 <section class="section_welcome" id="section_welcome">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <style>
-                    .welcome_content img{ 
-                        width: 100%;
-                        height: auto; 
-                        min-width: 250px;
-                        max-width: 450px;
-                    }
-                    @media (max-width: 768px){
-                        .welcome_content img{
-                            width: 60%;
-                        }
-                    }
-                </style>
+			<div class="col-sm-6 col-sm-offset-3">
                 <div class="welcome_content">
                     <?php if ( has_post_thumbnail() ): ?>
                         <?php the_post_thumbnail() ?>
@@ -47,7 +34,18 @@
                 }
             </style>
     <?php endif; ?>
-    <div class="welcome_bg"></div>
+
+	<div class="welcome_bg">
+		<?php // Get slider images 
+			$the_query = new WP_Query( array(
+				'post_type' => 'slider',
+			) ); 
+		?>
+
+		<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+			<div style="background: url('<?php the_post_thumbnail_url(); ?>'); background-size:cover;"></div>
+		<?php endwhile; wp_reset_postdata(); ?>	
+	</div>
 </section>
 
 
